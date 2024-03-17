@@ -1,0 +1,2 @@
+# Kata
+Random coding problems
