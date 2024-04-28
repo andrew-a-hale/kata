@@ -9,14 +9,14 @@ import (
 	"strings"
 )
 
-type op string
+type Op string
 
 const (
-	Quit     op = "q"
-	Plus     op = "+"
-	Minus    op = "-"
-	Multiply op = "*"
-	Divide   op = "/"
+	QUIT     Op = "q"
+	PLUS     Op = "+"
+	MINUS    Op = "-"
+	MULTIPLY Op = "*"
+	DIVIDE   Op = "/"
 )
 
 func getInput(reader *bufio.Reader) (string, error) {
@@ -26,7 +26,7 @@ func getInput(reader *bufio.Reader) (string, error) {
 	}
 
 	s = strings.TrimSpace(s)
-	if op(s) == Quit {
+	if Op(s) == QUIT {
 		fmt.Println("Quitting...")
 		os.Exit(0)
 	}
@@ -68,23 +68,22 @@ func main() {
 			log.Fatalf("failed to get input: %v\n", err)
 		}
 
-		switch op := op(input); op {
-		case Plus:
+		switch op := Op(input); op {
+		case PLUS:
 			fmt.Printf("%d %s %d = %d\n", n1, op, n2, n1+n2)
 			done = true
-		case Minus:
+		case MINUS:
 			fmt.Printf("%d %s %d = %d\n", n1, op, n2, n1-n2)
 			done = true
-		case Multiply:
+		case MULTIPLY:
 			fmt.Printf("%d %s %d = %d\n", n1, op, n2, n1*n2)
 			done = true
-		case Divide:
+		case DIVIDE:
 			fmt.Printf("%d %s %d = %d\n", n1, op, n2, n1/n2)
 			done = true
 		default:
 			fmt.Printf("failed to match an operation: %s\n", op)
 			fmt.Printf("Try Again!\n")
-
 		}
 	}
 }
