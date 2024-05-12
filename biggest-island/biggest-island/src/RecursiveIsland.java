@@ -1,13 +1,13 @@
 import java.util.Random;
 
-public class LargestIsland {
+public class RecursiveIsland {
     int rows = 10;
     int cols = 10;
     int[][] grid = new int[rows][cols];
     boolean[][] visited = new boolean[rows][cols];
     Random random = new Random();
 
-    public LargestIsland() {
+    public RecursiveIsland() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid.length; j++) {
                 if (random.nextDouble() > 0.5) {
@@ -70,7 +70,7 @@ public class LargestIsland {
     }
 
     public static void main(String[] args) {
-        LargestIsland li = new LargestIsland();
+        RecursiveIsland li = new RecursiveIsland();
         li.print();
         System.out.println(li.calculate());
     }

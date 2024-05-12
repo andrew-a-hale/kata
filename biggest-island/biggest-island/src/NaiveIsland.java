@@ -2,14 +2,14 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class Map {
+public class NaiveIsland {
     int size = 5;
     int area = size * size;
     int[] grid;
     Random random = new Random();
     Set<Integer> seenCells = new HashSet<>();
 
-    public Map() {
+    public NaiveIsland() {
         grid = new int[area];
         for (int i = 0; i < grid.length; i++) {
             if (random.nextBoolean()) {
@@ -92,5 +92,12 @@ public class Map {
             }
         }
         System.out.println(out);
+    }
+
+    public static void main(String[] args) {
+        NaiveIsland map = new NaiveIsland();
+        map.print();
+        long largestIsland = map.largestIsland();
+        System.out.println(largestIsland);
     }
 }
